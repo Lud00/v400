@@ -1,0 +1,104 @@
+[general]
+version = 4
+name = v400 T205 Thin Speed Retraction Bridge
+definition = flsun_v400
+
+[metadata]
+type = quality_changes
+quality_type = normal
+setting_version = 22
+
+[values]
+acceleration_enabled = False
+adaptive_layer_height_enabled = False
+adhesion_type = skirt
+bridge_settings_enabled = False
+jerk_enabled = False
+klipper_tuning_tower_command = SET_PRESSURE_ADVANCE
+klipper_tuning_tower_factor = 0.005
+klipper_tuning_tower_parameter = ADVANCE
+klipper_tuning_tower_preset = pressure
+layer_height = 0.1
+layer_height_0 = 0.25
+machine_firmware_retract = True
+material_bed_temperature = 60
+material_bed_temperature_layer_0 = 60
+retraction_combing = infill
+speed_slowdown_layers = 2
+support_enable = False
+support_structure = tree
+support_type = buildplate
+
+[general]
+version = 4
+name = v400 T205 Thin Speed Retraction Bridge
+definition = flsun_v400
+
+[metadata]
+type = quality_changes
+quality_type = normal
+intent_category = default
+position = 0
+setting_version = 22
+
+[values]
+acceleration_topbottom = =acceleration_print
+acceleration_travel = =acceleration_print if magic_spiralize else 5000
+acceleration_wall = =acceleration_print
+bottom_layers = =999999 if infill_sparse_density == 100 and not magic_spiralize else math.ceil(round(bottom_thickness / resolveOrValue('layer_height'), 4))
+brim_line_count = 20
+brim_outside_only = False
+cool_fan_full_at_height = =0 if resolveOrValue('adhesion_type') == 'raft' else resolveOrValue('layer_height_0')
+cool_fan_speed = =100.0 if cool_fan_enabled else 0.0
+expand_skins_expand_distance = =wall_line_width_0 + (wall_line_count - 1) * wall_line_width_x
+fill_outline_gaps = True
+infill_overlap = =10 if infill_sparse_density < 95 and infill_pattern != 'concentric' else 0
+infill_pattern = gyroid
+infill_sparse_density = 10
+inset_direction = inside_out
+jerk_layer_0 = =jerk_print
+jerk_topbottom = =jerk_print
+jerk_travel = =jerk_print if magic_spiralize else 30
+jerk_wall = =jerk_print
+jerk_wall_0 = =jerk_wall
+line_width = =machine_nozzle_size
+material_final_print_temperature = =max(-273.15, material_print_temperature - 15)
+material_flow = 94
+material_flow_layer_0 = 120
+material_initial_print_temperature = =max(-273.15, material_print_temperature - 10)
+material_print_temperature = =default_material_print_temperature
+material_print_temperature_layer_0 = =material_print_temperature
+retract_at_layer_change = True
+retraction_hop_enabled = False
+roofing_layer_count = 0
+roofing_pattern = zigzag
+skin_outline_count = 0
+skin_overlap = 30
+skin_preshrink = =wall_line_width_0 + (wall_line_count - 1) * wall_line_width_x
+skirt_brim_speed = 25
+skirt_height = 2
+speed_infill = 350
+speed_layer_0 = 25
+speed_print = 400
+speed_print_layer_0 = 25
+speed_support = 350
+speed_topbottom = 120
+speed_travel = 400
+speed_travel_layer_0 = =speed_layer_0 * speed_travel / speed_print
+speed_wall = 120
+speed_wall_x = 280
+support_bottom_wall_count = =support_interface_wall_count
+support_brim_width = =(skirt_brim_line_width * initial_layer_line_width_factor / 100.0) * 3
+support_infill_rate = =15 if support_enable and support_structure == 'normal' else 0 if support_enable and support_structure == 'tree' else 15
+support_interface_skip_height = =layer_height
+support_pattern = grid
+support_roof_density = =extruderValue(support_roof_extruder_nr, 'support_interface_density')
+support_wall_count = 2
+top_bottom_pattern = lines
+top_layers = =0 if infill_sparse_density == 100 else math.ceil(round(top_thickness / resolveOrValue('layer_height'), 4))
+top_thickness = =top_bottom_thickness
+wall_line_count = =1 if magic_spiralize else max(1, round((wall_thickness - wall_line_width_0) / wall_line_width_x) + 1) if wall_thickness != 0 else 0
+wall_overhang_speed_factor = 60
+wall_thickness = 0.75
+zig_zaggify_infill = False
+zig_zaggify_support = True 
