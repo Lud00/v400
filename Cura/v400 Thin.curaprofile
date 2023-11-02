@@ -49,8 +49,9 @@ material_flow_layer_0 = 120
 material_initial_print_temperature = =max(-273.15, material_print_temperature - 10)
 material_print_temperature = =default_material_print_temperature
 material_print_temperature_layer_0 = =material_print_temperature
-retract_at_layer_change = True
+retract_at_layer_change = False
 retraction_combing = infill
+retraction_enable = True
 retraction_hop_enabled = False
 roofing_layer_count = 0
 roofing_pattern = zigzag
