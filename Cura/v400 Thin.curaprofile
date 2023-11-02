@@ -1,6 +1,6 @@
 [general]
 version = 4
-name = v400 T205 Thin Speed Retraction Bridge
+name = v400 T205 Thin 0.25 Nozzle
 definition = flsun_v400
 
 [metadata]
@@ -31,7 +31,7 @@ support_type = buildplate
 
 [general]
 version = 4
-name = v400 T205 Thin Speed Retraction Bridge
+name = v400 T205 Thin 0.25 Nozzle
 definition = flsun_v400
 
 [metadata]
